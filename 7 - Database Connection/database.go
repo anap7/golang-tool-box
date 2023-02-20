@@ -9,9 +9,7 @@ import (
 )
 
 func main() {
-	//connectionString := "golang:Golang.17386/devbook?charset=utf8&parseTime=True&loc=Local"
-	//connString := "golanguser:Golang17396@@tcp@(127.0.0.1:3306)/devbook"
-	connString := "golang:Golang_17396@tcp(localhost:3306)/devbook"
+	connString := "user:yourpassword@tcp(localhost:3306)/devbook"
 	db, error := sql.Open("mysql", connString)
 	if error != nil {
 		log.Fatal(error)
