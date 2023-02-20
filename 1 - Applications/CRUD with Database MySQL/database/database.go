@@ -8,18 +8,19 @@ import (
 
 //Open Connection with database (*A função retorna dois valores: o ponteiro de conexão do sql e um erro)
 func Connect() (*sql.DB, error) {
-	connectionString := "golang:Golang_17386/devbook?charset=utf8&parseTime=True&loc=Local" 
+	connectionString := "golang:Golang_17396@tcp(localhost:3306)/devbook"
 	db, error := sql.Open("mysql", connectionString)
 	if error != nil {
+		fmt.Println("Problem to open database!")
+		fmt.Print(error)
 		return nil, error
 	}
 
 	if error = db.Ping(); error != nil {
 		fmt.Println("Problem to ping database!")
+		fmt.Print(error)
 		return nil, error
 	}
-
-	fmt.Println("Connection is Open succesfully!")
-
+	
 	return db, nil
 }
